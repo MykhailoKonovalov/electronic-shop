@@ -39,6 +39,12 @@ footer {
     color: dodgerblue;
     text-decoration: none;
 }
+.left-sidebar {
+    left: 0;
+}
+.sidebar-btn {
+    margin: 15px 0 15px;
+}
 .signup-form {
     padding: 25px;
     margin: 0 auto;
