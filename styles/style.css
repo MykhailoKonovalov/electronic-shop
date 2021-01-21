@@ -1,0 +1,61 @@
+footer {
+    background-color: darkslategray;
+    width: 100%;
+    bottom:0;
+}
+.wrapper {
+    background-color: #050511;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+.carousel-container {
+    padding: 40px 75px 40px 75px;
+}
+.carousel {
+    width: 720px;
+}
+.carousel-item {
+    height: 228px;
+}
+.item, img{
+    position: absolute;
+    object-fit:cover;
+    height: 100% !important;
+    width:  100% !important;
+}
+.main-content {
+    margin-top: 50px;
+}
+.more-link {
+    padding-top: 15px;
+    float: right;
+}
+.more-link a {
+    color: white;
+}
+.more-link a:hover {
+    color: dodgerblue;
+    text-decoration: none;
+}
+.site-description {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+.social-links a{
+    font-size:24px;
+}
+@media(max-width:720px) {
+    .carousel {
+        width: 400px;
+    }
+    .carousel-item {
+        height: 150px;
+    }
+    .item, img{
+        position: absolute;
+        height: 100% !important;
+        width:  100% !important;
+    }
+}
