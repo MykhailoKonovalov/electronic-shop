@@ -10,6 +10,26 @@ footer {
     min-width: 100%;
     min-height: 100%;
 }
+.card {
+    height: 450px;
+    width: auto;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.card img {
+    min-height: 100px;
+    max-height: 250px;
+    min-width: 40px;
+    max-width: 150px;
+    margin-left: 25px;
+    position: static;
+}
+.card-list {
+    margin-right: 40px;
+}
+.card-title {
+    margin: 0 auto;
+}
 .carousel-container {
     padding: 40px 75px 40px 75px;
 }
@@ -39,6 +59,16 @@ footer {
     color: dodgerblue;
     text-decoration: none;
 }
+.left-sidebar {
+    left: 0;
+    position: absolute;
+}
+.left-sidebar div {
+    position: fixed;
+}
+.sidebar-btn {
+    margin: 15px 0 15px;
+}
 .signup-form {
     padding: 25px;
     margin: 0 auto;
@@ -56,6 +86,10 @@ footer {
 }
 .social-links a{
     font-size:24px;
+}
+.sort-menu {
+    float: right;
+    padding: 15px 75px 15px 15px;
 }
 @media(max-width:720px) {
     .carousel {
