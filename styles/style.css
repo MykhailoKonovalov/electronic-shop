@@ -1,6 +1,5 @@
 footer {
     background-color: darkslategray;
-    width: 100%;
     bottom:0;
 }
 .wrapper {
@@ -9,6 +8,23 @@ footer {
     left: 0;
     min-width: 100%;
     min-height: 100%;
+}
+.basket {
+    margin-left: 15%;
+    max-width: 70%;
+}
+.basket, .basket-item {
+    padding: 25px;
+}
+.basket-item {
+    min-height: 200px;
+}
+.basket-item img {
+    max-height: 150px;
+    max-width: 125px;
+}
+.basket-item input {
+    max-width: 75px;
 }
 .card {
     height: 450px;
