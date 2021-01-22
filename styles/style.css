@@ -61,6 +61,15 @@ footer {
     height: 100% !important;
     width:  100% !important;
 }
+.product-carousel {
+    width: 400px;
+}
+.product-info {
+    padding: 50px;
+}
+.product-description {
+    padding: 20px;
+}
 .main-content {
     margin-top: 50px;
 }
