@@ -1,8 +1,9 @@
 <?php
 
 use Core;
-use Exceptions\Storage\MissingParameterException;
 use Exceptions\Storage\InvalidIDExcemption;
+use Exceptions\Renderer\InvalidLayoutException;
+use Exceptions\Renderer\InvalidTemplateException;
 
 try {
     include "../autoloader.php";
@@ -17,5 +18,11 @@ try {
     $renderer->render("catalog", 'layout', $data);
 } catch (InvalidIDExcemption $IDExcemption) {
     echo $IDExcemption->getMessage();
+} catch (InvalidLayoutException $layoutException) {
+    echo $layoutException->getMessage();
+} catch (InvalidTemplateException $templateException) {
+    echo $templateException->getMessage();
+} catch (Exception $exception) {
+    echo $exception->getMessage();
 }
 
