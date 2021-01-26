@@ -1,0 +1,12 @@
+LOG LEVEL:	warning
+LOG MESSAGE:	Template not found!
+LOG CONTEXT:	catalog
+
+LOG LEVEL:	warning
+LOG MESSAGE:	Layout not found!
+LOG CONTEXT:	layout
+
+LOG LEVEL:	warning
+LOG MESSAGE:	Template not found!
+LOG CONTEXT:	catalg
+

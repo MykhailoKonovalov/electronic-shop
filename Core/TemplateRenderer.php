@@ -8,6 +8,16 @@ use Exceptions\Renderer\InvalidTemplateException;
 class TemplateRenderer
 {
     /**
+     * @var Logger\Logger
+     */
+    public Logger\Logger $logger;
+
+    public function __construct($logger)
+    {
+        $this->logger = $logger;
+    }
+
+    /**
      * @param string $template
      * @param string $layout
      * @param array|null $data

@@ -4,7 +4,6 @@
 namespace Core;
 
 use Exceptions\Storage\InvalidIDExcemption;
-use Exceptions\Storage\MissingParameterException;
 
 class Storage
 {
@@ -12,10 +11,15 @@ class Storage
      * @var array
      */
     private array $products;
+    /**
+     * @var Logger\Logger
+     */
+    public Logger\Logger $logger;
 
-    public function __construct (array $products = [])
+    public function __construct (array $products = [], $logger)
     {
         $this->products = $products;
+        $this->logger = $logger;
     }
 
     /**
@@ -29,20 +33,18 @@ class Storage
     /**
      * @param int $id
      * @return array
-     * @throws InvalidIDExcemption
-     * @throws MissingParameterException
      */
     public function getById (int $id) : array
     {
         $data = [];
-        foreach ($this->products as $product) {
-            if ($product["id"] == $id) {
-                array_push($data, $product);
+            foreach ($this->products as $product) {
+                if ($product["id"] == $id) {
+                    array_push($data, $product);
+                }
             }
-        }
-        if (!$data) {
-            throw new InvalidIDExcemption("Uncorrect id!");
-        }
+            if (!$data) {
+                throw new InvalidIDExcemption("Uncorrect id!", "404");
+            }
         return $data;
     }
 
