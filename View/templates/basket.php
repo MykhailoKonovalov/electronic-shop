@@ -4,7 +4,7 @@
         <h3 class="display text-light text-center">Кошик</h3>
         <div class="row basket-item">
             <div class="col-md-3 col-lg-3 col-6">
-                <img src="images/iphone.jpeg" alt="Назва товару"/>
+                <img src="../../public/images/iphone.jpeg" alt="Назва товару"/>
             </div>
             <div class="col-md-3 col-lg-3 col-6">
                 <p>iPhone 12</p>
@@ -28,7 +28,7 @@
     </div>
         <div class="row basket-item">
             <div class="col-md-3 col-lg-3 col-6">
-                <img src="images/iphone.jpeg" alt="Назва товару"/>
+                <img src="../../public/images/iphone.jpeg" alt="Назва товару"/>
             </div>
             <div class="col-md-3 col-lg-3 col-6">
                 <p>iPhone 11</p>
