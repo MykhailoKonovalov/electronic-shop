@@ -12,13 +12,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="images/iphone.jpeg" alt="ProductPhoto1"/>
+                        <img class="d-block w-100" src="../../public/images/iphone.jpeg" alt="ProductPhoto1"/>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/iphone.jpeg" alt="ProductPhoto2"/>
+                        <img class="d-block w-100" src="../../public/images/iphone.jpeg" alt="ProductPhoto2"/>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/iphone.jpeg" alt="ProductPhoto3"/>
+                        <img class="d-block w-100" src="../../public/images/iphone.jpeg" alt="ProductPhoto3"/>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
