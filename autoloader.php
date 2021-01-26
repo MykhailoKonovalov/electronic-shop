@@ -8,6 +8,7 @@ class Autoloader
         if (file_exists($path)) {
             require $path;
         } else {
+            echo $path;
             echo "Class no required!";
         }
     }
