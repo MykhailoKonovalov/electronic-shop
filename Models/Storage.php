@@ -1,9 +1,10 @@
 <?php
 
 
-namespace Core;
+namespace Models;
 
-use Exceptions\Storage\InvalidIDExcemption;
+use Tools\Exceptions\Storage\InvalidIDExcemption;
+use Tools\Logger\Logger;
 
 class Storage
 {
@@ -12,9 +13,9 @@ class Storage
      */
     private array $products;
     /**
-     * @var Logger\Logger
+     * @var Logger
      */
-    public Logger\Logger $logger;
+    public Logger $logger;
 
     public function __construct (array $products = [], $logger)
     {

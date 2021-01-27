@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Core\Logger;
+namespace Tools\Logger;
 
 
 class Logger implements LoggerInterface
@@ -54,7 +54,7 @@ class Logger implements LoggerInterface
 
     public function log($level, $message, array $context = array())
     {
-        $path = __DIR__ . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . $this->filename;
+        $path = __DIR__ . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . $this->filename;
         $msg = "LOG LEVEL:\t" . $level . "\n" . "LOG MESSAGE:\t" . $message . "\n" .
             "LOG CONTEXT:\t" . implode(', ', $context) . "\n\n";
         fopen($path, "a+");

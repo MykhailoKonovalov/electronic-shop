@@ -1,6 +1,6 @@
 <?php
 
-namespace Exceptions\Renderer;
+namespace Tools\Exceptions\Renderer;
 
 use Exception;
 

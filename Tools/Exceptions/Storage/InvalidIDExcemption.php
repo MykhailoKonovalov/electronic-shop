@@ -1,6 +1,6 @@
 <?php
 
-namespace Exceptions\Storage;
+namespace Tools\Exceptions\Storage;
 
 use Exception;
 

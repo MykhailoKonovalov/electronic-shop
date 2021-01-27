@@ -1,16 +1,17 @@
 <?php
 
-use Core;
-use Exceptions\Storage\InvalidIDExcemption;
-use Exceptions\Renderer\InvalidLayoutException;
-use Exceptions\Renderer\InvalidTemplateException;
-use Core\Logger\Logger;
+use Tools\TemplateRenderer;
+use Models\Storage;
+use Tools\Exceptions\Storage\InvalidIDExcemption;
+use Tools\Exceptions\Renderer\InvalidLayoutException;
+use Tools\Exceptions\Renderer\InvalidTemplateException;
+use Tools\Logger\Logger;
 
 include "../autoloader.php";
 
 $products = require "../Database/products.php";
 $storageLogger = new Logger();
-$storage = new Core\Storage($products, $storageLogger);
+$storage = new Storage($products, $storageLogger);
 
 $id = $_GET["id"];
 $template = "catalog";
@@ -23,7 +24,7 @@ try {
         $data = $storage->getById($id);
     }
     $templateLogger = new Logger("temp_log.txt");
-    $renderer = new Core\TemplateRenderer($templateLogger);
+    $renderer = new TemplateRenderer($templateLogger);
     $renderer->render($template, $layout, $data);
 } catch (InvalidIDExcemption $IDExcemption) {
     $storage->logger->warning($IDExcemption->getMessage(), ["id" => $id]);
