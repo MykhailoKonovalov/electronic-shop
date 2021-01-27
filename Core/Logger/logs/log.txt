@@ -1,0 +1,8 @@
+LOG LEVEL:	warning
+LOG MESSAGE:	Uncorrect id!
+LOG CONTEXT:	24
+
+LOG LEVEL:	warning
+LOG MESSAGE:	Uncorrect id!
+LOG CONTEXT:	24
+
