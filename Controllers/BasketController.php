@@ -1,13 +1,15 @@
 <?php
 
+
 namespace Controllers;
+
 
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\Logger\Logger;
 use Tools\TemplateRenderer;
 
-class MainController
+class BasketController
 {
     /**
      * @var Logger
@@ -27,7 +29,7 @@ class MainController
     }
 
     public function index() {
-        $template = "main";
+        $template = "basket";
         try {
             $this->view->render($template, $this->layout);
         } catch (InvalidLayoutException $layoutException) {

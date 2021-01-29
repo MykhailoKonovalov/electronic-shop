@@ -1,6 +1,12 @@
+<?php
+/**
+ * @var $data
+ */
+?>
 <main>
     <div class="container main-content">
         <div class="row">
+            <?php foreach ($data as $datum) { ?>
             <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="container product-container text-light">
             <div id="carouselExampleIndicators" class="carousel slide carousel-container product-carousel"
@@ -35,11 +41,10 @@
                 <div class="col-sm-12 col-md-6 col-lg-6 text-light product-info">
                     <div class="row">
                         <div class="col-8">
-                            <h3 class="text-center">iPhone 12</h3>
-                            <p>Бренд: <a href="">Apple</a></p>
-                            <p>Категорія: <a href="">Смартфони</a></p>
-                            <p>Ціна: 27 999 грн</p>
-                            <p>Продано: 349</p>
+                            <h3 class="text-center"><?= $datum["title"] ?></h3>
+                            <p>Бренд: <a href=""><?= $datum["brand"] ?></a></p>
+                            <p>Категорія: <a href=""><?= $datum["category"] ?></a></p>
+                            <p>Ціна:<?= $datum["price"] ?></p>
                         </div>
                         <div class="col-4">
                             <button type="button" class="btn btn-outline-light">
@@ -54,30 +59,8 @@
     </div>
     <div class="container product-description text-light">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus, lectus vel ultricies pretium,
-            dolor est dapibus elit, dictum rutrum risus massa eu erat. Integer feugiat tincidunt metus at malesuada.
-            Donec tincidunt tortor quis tellus egestas, ut euismod dolor feugiat. Cras iaculis massa eget finibus
-            interdum. Integer iaculis nisi eget nisl pretium auctor. Duis consequat posuere iaculis. Curabitur a
-            velit et est porttitor imperdiet. Sed tempor fringilla vestibulum. Duis congue, orci non bibendum
-            ultricies, augue dui convallis est, eget iaculis nulla nibh a augue. Aliquam mollis, neque ut tincidunt
-            malesuada, nisi erat dignissim mauris, id lacinia lacus risus non augue. Mauris id nibh arcu. Ut et
-            purus lobortis, ullamcorper nulla et, iaculis nulla. Duis quis orci libero. Donec lacinia lobortis
-            justo, id varius felis pulvinar blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            dictum consequat justo. Nam in orci ornare, aliquam risus tincidunt, venenatis augue. Sed feugiat vitae
-            dolor id feugiat. Aenean et ligula risus. Pellentesque blandit pretium ex at ullamcorper. Aenean at arcu
-            lorem. Vestibulum vulputate risus justo, quis elementum ante cursus eu. Nulla eleifend lacus in erat
-            hendrerit sagittis. Morbi lacinia, tortor at tempus hendrerit, augue est rutrum mi, id pretium quam
-            neque id mi. Ut at ullamcorper metus. Ut fringilla quam libero, at commodo mi aliquet et. Vivamus congue
-            faucibus nisl, nec facilisis quam interdum condimentum. Orci varius natoque penatibus et magnis dis
-            parturient montes, nascetur ridiculus mus. Integer turpis eros, dignissim sed fermentum ac, tristique
-            non neque. Vestibulum finibus, eros in sollicitudin rhoncus, ipsum massa pulvinar lorem, non gravida
-            justo nisi a nulla. Pellentesque pulvinar tempor nulla, at facilisis lacus bibendum sed. Phasellus lorem
-            odio, dapibus at
-            pellentesque a, scelerisque et nisl. Suspendisse bibendum purus in porta pellentesque. Proin dapibus
-            sagittis fermentum. In hac habitasse platea dictumst. Duis et lacus vel dui viverra fermentum. Mauris a
-            dignissim lacus. Donec nec ante ipsum. Maecenas vehicula tristique viverra. Donec eget magna sem. Ut
-            quis lectus pellentesque felis lobortis eleifend. Nullam sed gravida dui. Pellentesque quis placerat
-            est, aliquam tristique eros. Vivamus vulputate egestas libero, at vestibulum arcu feugiat at.
+            <?= $datum["description"] ?>
         </p>
     </div>
+    <?php } ?>
 </main>

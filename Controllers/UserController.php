@@ -1,13 +1,15 @@
 <?php
 
+
 namespace Controllers;
+
 
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\Logger\Logger;
 use Tools\TemplateRenderer;
 
-class MainController
+class UserController
 {
     /**
      * @var Logger
@@ -26,8 +28,20 @@ class MainController
         $this->layout = "layout";
     }
 
-    public function index() {
-        $template = "main";
+    public function signin() {
+        $template = "signin";
+        try {
+            $this->view->render($template, $this->layout);
+        } catch (InvalidLayoutException $layoutException) {
+            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+        } catch (InvalidTemplateException $templateException) {
+            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+        } catch (Exception $exception) {
+        }
+    }
+
+    public function signup() {
+        $template = "signup";
         try {
             $this->view->render($template, $this->layout);
         } catch (InvalidLayoutException $layoutException) {
