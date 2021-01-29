@@ -4,7 +4,6 @@
 namespace Controllers;
 
 use Exception;
-use Models\Storage;
 use Models\Product;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
@@ -17,7 +16,7 @@ class CatalogController
     /**
      * @var Product
      */
-    private Product $model;
+    public Product $model;
     /**
      * @var Logger
      */
@@ -56,6 +55,7 @@ class CatalogController
     {
         $template = "product";
         $id = $_GET["id"];
+//        print_r($this->model->getById($id));
         try {
             $data = $this->model->getById($id);
             $this->view->render($template, $this->layout, $data);

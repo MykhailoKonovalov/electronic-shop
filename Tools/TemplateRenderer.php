@@ -9,7 +9,7 @@ use Tools\Logger\Logger;
 class TemplateRenderer
 {
     /**
-     * @var Logger\Logger
+     * @var Logger
      */
     public Logger $logger;
 
@@ -25,7 +25,7 @@ class TemplateRenderer
      * @throws InvalidTemplateException
      * @throws InvalidLayoutException
      */
-    public function render(string $template, string $layout, array $data = null) {
+    public function render(string $template, string $layout, $data = null) {
         $templatePath = '../Views/templates/';
         $layoutPath = '../Views/layouts/';
         ob_start();
