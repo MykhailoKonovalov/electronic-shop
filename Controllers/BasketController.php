@@ -1,0 +1,42 @@
+<?php
+
+
+namespace Controllers;
+
+
+use Tools\Exceptions\Renderer\InvalidLayoutException;
+use Tools\Exceptions\Renderer\InvalidTemplateException;
+use Tools\Logger\Logger;
+use Tools\TemplateRenderer;
+
+class BasketController
+{
+    /**
+     * @var Logger
+     */
+    private Logger $viewLogger;
+    /**
+     * @var TemplateRenderer
+     */
+    private TemplateRenderer $view;
+    private string $layout;
+
+    public function __construct()
+    {
+        $this->viewLogger = new Logger("temp_log.txt");
+        $this->view = new TemplateRenderer($this->viewLogger);
+        $this->layout = "layout";
+    }
+
+    public function index() {
+        $template = "basket";
+        try {
+            $this->view->render($template, $this->layout);
+        } catch (InvalidLayoutException $layoutException) {
+            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+        } catch (InvalidTemplateException $templateException) {
+            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+        } catch (Exception $exception) {
+        }
+    }
+}

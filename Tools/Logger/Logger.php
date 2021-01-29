@@ -1,15 +1,13 @@
 <?php
 
-
-namespace Core\Logger;
-
+namespace Tools\Logger;
 
 class Logger implements LoggerInterface
 {
     private string $filename;
 
     public function __construct($filename=null) {
-        $this->filename = $filename ?? "log.txt";
+        $this->filename = isset($filename) ? $filename : "log.txt";
     }
 
     public function emergency($message, array $context = array())
@@ -56,7 +54,8 @@ class Logger implements LoggerInterface
     {
         $path = __DIR__ . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . $this->filename;
         $msg = "LOG LEVEL:\t" . $level . "\n" . "LOG MESSAGE:\t" . $message . "\n" .
-            "LOG CONTEXT:\t" . implode(', ', $context) . "\n\n";
+            "LOG CONTEXT:\t" . implode(', ', $context) . "\n" .
+            "LOG TIME:\t" . date('Y-m-d h:m:s') . "\n\n";
         fopen($path, "a+");
         if (file_exists($path)) {
             file_put_contents($path, $msg, FILE_APPEND);

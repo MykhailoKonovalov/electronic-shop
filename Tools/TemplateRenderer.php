@@ -1,16 +1,17 @@
 <?php
 
-namespace Core;
+namespace Tools;
 
-use Exceptions\Renderer\InvalidLayoutException;
-use Exceptions\Renderer\InvalidTemplateException;
+use Tools\Exceptions\Renderer\InvalidLayoutException;
+use Tools\Exceptions\Renderer\InvalidTemplateException;
+use Tools\Logger\Logger;
 
 class TemplateRenderer
 {
     /**
      * @var Logger\Logger
      */
-    public Logger\Logger $logger;
+    public Logger $logger;
 
     public function __construct($logger)
     {
@@ -25,8 +26,8 @@ class TemplateRenderer
      * @throws InvalidLayoutException
      */
     public function render(string $template, string $layout, array $data = null) {
-        $templatePath = '../View/templates/';
-        $layoutPath = '../View/layouts/';
+        $templatePath = '../Views/templates/';
+        $layoutPath = '../Views/layouts/';
         ob_start();
         if (file_exists($templatePath . $template . '.php')) {
             require_once $templatePath . $template . '.php';
