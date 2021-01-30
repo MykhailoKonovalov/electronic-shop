@@ -40,7 +40,7 @@
                         <div class="card">
                             <img src="<?= $datum->image ?>" alt="<?= $datum->title ?>"/>
                             <div class="card-body">
-                                <a href="#">
+                                <a href="/catalog/show?id=<?= $datum->id ?>">
                                     <h5 class="card-title"><?= $datum->title ?></h5>
                                 </a>
                                 <p>Бренд: <a href="#"><?= $datum->brand ?></a></p>
