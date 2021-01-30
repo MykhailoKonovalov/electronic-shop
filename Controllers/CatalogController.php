@@ -4,7 +4,7 @@
 namespace Controllers;
 
 use Exception;
-use Models\Product;
+use Models\ProductMapper;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\Exceptions\Storage\InvalidIDExcemption;
@@ -14,9 +14,9 @@ use Tools\TemplateRenderer;
 class CatalogController
 {
     /**
-     * @var Product
+     * @var ProductMapper
      */
-    public Product $model;
+    public ProductMapper $model;
     /**
      * @var Logger
      */
@@ -32,7 +32,7 @@ class CatalogController
     {
         $this->modelLogger = new Logger("data_log.txt");
         $this->viewLogger = new Logger("temp_log.txt");
-        $this->model = new Product($this->modelLogger);
+        $this->model = new ProductMapper($this->modelLogger);
         $this->view = new TemplateRenderer($this->viewLogger);
         $this->layout = "layout";
     }
@@ -55,7 +55,6 @@ class CatalogController
     {
         $template = "product";
         $id = $_GET["id"];
-//        print_r($this->model->getById($id));
         try {
             $data = $this->model->getById($id);
             $this->view->render($template, $this->layout, $data);
