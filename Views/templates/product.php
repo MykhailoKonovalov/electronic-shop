@@ -6,7 +6,6 @@
 <main>
     <div class="container main-content">
         <div class="row">
-            <?php foreach ($data as $datum) { ?>
             <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="container product-container text-light">
             <div id="carouselExampleIndicators" class="carousel slide carousel-container product-carousel"
@@ -41,10 +40,10 @@
                 <div class="col-sm-12 col-md-6 col-lg-6 text-light product-info">
                     <div class="row">
                         <div class="col-8">
-                            <h3 class="text-center"><?= $datum["title"] ?></h3>
-                            <p>Бренд: <a href=""><?= $datum["brand"] ?></a></p>
-                            <p>Категорія: <a href=""><?= $datum["category"] ?></a></p>
-                            <p>Ціна:<?= $datum["price"] ?></p>
+                            <h3 class="text-center"><?= $data->title ?></h3>
+                            <p>Бренд: <a href=""><?= $data->brand ?></a></p>
+                            <p>Категорія: <a href=""><?= $data->category ?></a></p>
+                            <p>Ціна:<?= $data->price ?></p>
                         </div>
                         <div class="col-4">
                             <button type="button" class="btn btn-outline-light">
@@ -59,8 +58,7 @@
     </div>
     <div class="container product-description text-light">
         <p>
-            <?= $datum["description"] ?>
+            <?= $data->description ?>
         </p>
     </div>
-    <?php } ?>
 </main>

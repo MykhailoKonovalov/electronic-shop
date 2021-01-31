@@ -1,20 +1,10 @@
 LOG LEVEL:	warning
-LOG MESSAGE:	Uncorrect id!
-LOG CONTEXT:	
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Uncorrect id!
-LOG CONTEXT:	29
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Uncorrect id!
-LOG CONTEXT:	29
+LOG MESSAGE:	Incorrect id!
+LOG CONTEXT:	22
+LOG TIME:	2021-01-30 10:01:47
 
 LOG LEVEL:	warning
 LOG MESSAGE:	Incorrect id!
-LOG CONTEXT:	
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Incorrect id!
-LOG CONTEXT:	21
+LOG CONTEXT:	23
+LOG TIME:	2021-01-30 10:01:55
 

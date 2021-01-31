@@ -1,24 +1,5 @@
 LOG LEVEL:	warning
-LOG MESSAGE:	Template not found!
-LOG CONTEXT:	preoduct
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Template not found!
-LOG CONTEXT:	
-LOG TIME:	2021-01-29 03:01:53
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Template not found!
-LOG CONTEXT:	
-LOG TIME:	2021-01-29 03:01:27
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Template not found!
-LOG CONTEXT:	
-LOG TIME:	2021-01-29 03:01:58
-
-LOG LEVEL:	warning
-LOG MESSAGE:	Template not found!
-LOG CONTEXT:	
-LOG TIME:	2021-01-29 03:01:23
+LOG MESSAGE:	Layout not found!
+LOG CONTEXT:	layou
+LOG TIME:	2021-01-30 10:01:58
 
