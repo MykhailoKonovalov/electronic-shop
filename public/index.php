@@ -3,6 +3,7 @@
 use Route\Router;
 use Tools\Exceptions\Router\InvalidRouteException;
 use Tools\Logger\Logger;
+use Sessions\Session;
 
 include "../autoloader.php";
 $routerLogger = new Logger("rout_log.txt");

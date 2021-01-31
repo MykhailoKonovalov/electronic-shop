@@ -28,16 +28,16 @@ class Router
         if ($pathURL == $route) {
             $controllerPath = '\\Controllers\\' . $controllerName;
             $action = strtolower($actionName);
-            if (class_exists($controllerPath)) {
-                $controller = new $controllerPath();
-                if (method_exists($controller, $action)) {
-                    $controller->$action();
+                if (class_exists($controllerPath)) {
+                    $controller = new $controllerPath();
+                    if (method_exists($controller, $action)) {
+                        $controller->$action();
+                    } else {
+                        throw new InvalidRouteException("Action does not exist!");
+                    }
                 } else {
-                    throw new InvalidRouteException("Action does not exist!");
+                    throw new InvalidRouteException("Controller does not exist!");
                 }
-            } else {
-                throw new InvalidRouteException("Controller does not exist!");
             }
-        }
     }
 }
