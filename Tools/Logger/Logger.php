@@ -6,7 +6,8 @@ class Logger implements LoggerInterface
 {
     private string $filename;
 
-    public function __construct($filename=null) {
+    public function __construct($filename=null)
+    {
         $this->filename = isset($filename) ? $filename : "log.txt";
     }
 
@@ -52,7 +53,7 @@ class Logger implements LoggerInterface
 
     public function log($level, $message, array $context = array())
     {
-        $path = __DIR__ . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . $this->filename;
+        $path = __DIR__ . DIRECTORY_SEPARATOR . "../../storage/logs" . DIRECTORY_SEPARATOR . $this->filename;
         $msg = "LOG LEVEL:\t" . $level . "\n" . "LOG MESSAGE:\t" . $message . "\n" .
             "LOG CONTEXT:\t" . implode(', ', $context) . "\n" .
             "LOG TIME:\t" . date('Y-m-d h:i:s') . "\n\n";

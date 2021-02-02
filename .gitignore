@@ -1,2 +1,6 @@
 .idea
-logs
+storage
+
+phpcbf.phar
+phpcs.phar
+/vendor/

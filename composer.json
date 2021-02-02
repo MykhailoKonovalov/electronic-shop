@@ -1,0 +1,23 @@
+{
+    "name": "misha/my-project",
+    "authors": [
+        {
+            "name": "MykhailoKonovalov",
+            "email": "mykhailo.konovalov@nure.ua"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "Controllers\\" : "Controllers/",
+            "Models\\" : "Models/",
+            "Route\\" : "Route/",
+            "Sessions\\" : "Sessions/",
+            "Tools\\" : "Tools/",
+            "Tools\\Exceptions\\Renderer\\" : "Tools/Exceptions/Renderer/",
+            "Tools\\Exceptions\\Router\\" : "Tools/Exceptions/Router/",
+            "Tools\\Exceptions\\Storage\\" : "Tools/Exceptions/Storage/",
+            "Tools\\Logger\\" : "Tools/Logger/"
+        }
+    },
+    "require": {}
+}

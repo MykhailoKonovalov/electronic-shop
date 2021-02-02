@@ -23,7 +23,8 @@ class Router
      * @param $actionName
      * @throws InvalidRouteException
      */
-    public function route($route, $controllerName, $actionName) {
+    public function route($route, $controllerName, $actionName)
+    {
         $pathURL = parse_url($_SERVER["REQUEST_URI"])["path"];
         if ($pathURL == $route) {
             $controllerPath = '\\Controllers\\' . $controllerName;

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Models;
 
 use Tools\Exceptions\Storage\InvalidIDExcemption;
@@ -13,7 +12,7 @@ class ProductMapper
      */
     public Logger $logger;
 
-    public function __construct ($logger)
+    public function __construct($logger)
     {
         $this->logger = $logger;
     }
@@ -21,7 +20,7 @@ class ProductMapper
     /**
      * @return array
      */
-    public function getData (): array
+    public function getData(): array
     {
         $storage = new Storage();
         $dataArray = $storage->parseData("../Database/products.txt");

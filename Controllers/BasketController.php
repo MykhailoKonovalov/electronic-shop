@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Controllers;
-
 
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
@@ -28,7 +26,8 @@ class BasketController
         $this->layout = "layout";
     }
 
-    public function index() {
+    public function index()
+    {
         $template = "basket";
         try {
             $this->view->render($template, $this->layout);
