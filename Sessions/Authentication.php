@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sessions;
-
 
 class Authentication
 {
@@ -13,7 +11,8 @@ class Authentication
     private string $email;
     private string $pass;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->session = new Session();
         $this->email = "user@gmail.com";
         $this->pass = "qwerty";

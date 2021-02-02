@@ -4,7 +4,8 @@ use Route\Router;
 use Tools\Exceptions\Router\InvalidRouteException;
 use Tools\Logger\Logger;
 use Sessions\Session;
-include "../autoloader.php";
+
+include "../vendor/autoload.php";
 $session = new Session();
 $session->start();
 $routerLogger = new Logger("rout_log.txt");

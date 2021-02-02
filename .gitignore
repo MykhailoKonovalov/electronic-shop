@@ -1,3 +1,6 @@
 .idea
 storage
 
+phpcbf.phar
+phpcs.phar
+/vendor/

@@ -26,7 +26,8 @@ class MainController
         $this->layout = "layout";
     }
 
-    public function index() {
+    public function index()
+    {
         $template = "main";
         try {
             $this->view->render($template, $this->layout);

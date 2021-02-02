@@ -27,19 +27,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="../../public/images/banner1.webp" alt="Sale"/>
+                            <img class="d-block w-100" src="/images/banner1.webp" alt="Sale"/>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="../../public/images/banner2.webp" alt="Sale"/>
+                            <img class="d-block w-100" src="/images/banner2.webp" alt="Sale"/>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="../../public/images/banner3.webp" alt="Sale"/>
+                            <img class="d-block w-100" src="/images/banner3.webp" alt="Sale"/>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="../../public/images/banner4.webp" alt="Sale"/>
+                            <img class="d-block w-100" src="/images/banner4.webp" alt="Sale"/>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="../../public/images/banner5.webp" alt="Sale"/>
+                            <img class="d-block w-100" src="/images/banner5.webp" alt="Sale"/>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

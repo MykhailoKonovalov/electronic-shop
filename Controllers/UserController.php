@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Controllers;
-
 
 use Exception;
 use Sessions\Authentication;
@@ -35,7 +33,8 @@ class UserController
         $this->authentication = new Authentication();
     }
 
-    public function profile() {
+    public function profile()
+    {
         $template = "profile";
         try {
             $this->authentication->auth($_POST["email"], $_POST["password"]);
@@ -53,15 +52,21 @@ class UserController
         }
     }
 
-    public function logout () {
+    public function logout()
+    {
         $this->authentication->logOut();
         header("Location:/signin");
     }
 
-    public function signin() {
+    public function signin()
+    {
         $template = "signin";
         try {
-            $this->view->render($template, $this->layout);
+            if ($this->authentication->isAuth()) {
+                header("Location:/profile");
+            } else {
+                $this->view->render($template, $this->layout);
+            }
         } catch (InvalidLayoutException $layoutException) {
             $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
         } catch (InvalidTemplateException $templateException) {
@@ -70,10 +75,15 @@ class UserController
         }
     }
 
-    public function signup() {
+    public function signup()
+    {
         $template = "signup";
         try {
-            $this->view->render($template, $this->layout);
+            if ($this->authentication->isAuth()) {
+                header("Location:/profile");
+            } else {
+                $this->view->render($template, $this->layout);
+            }
         } catch (InvalidLayoutException $layoutException) {
             $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
         } catch (InvalidTemplateException $templateException) {

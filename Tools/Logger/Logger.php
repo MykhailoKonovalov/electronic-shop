@@ -6,7 +6,8 @@ class Logger implements LoggerInterface
 {
     private string $filename;
 
-    public function __construct($filename=null) {
+    public function __construct($filename=null)
+    {
         $this->filename = isset($filename) ? $filename : "log.txt";
     }
 
