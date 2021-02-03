@@ -2,10 +2,14 @@
 
 namespace Controllers;
 
+use Exception;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
-use Tools\Logger\Logger;
+//use Tools\Logger\Logger;
 use Tools\TemplateRenderer;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
 
 class MainController
 {
@@ -21,8 +25,10 @@ class MainController
 
     public function __construct()
     {
-        $this->viewLogger = new Logger("temp_log.txt");
-        $this->view = new TemplateRenderer($this->viewLogger);
+        $this->viewLogger = new Logger("RENDERER");
+        $this->viewLogger->pushHandler(new StreamHandler('../storage/logs/renderer.log', Logger::WARNING));
+        $this->viewLogger->pushHandler(new FirePHPHandler());
+        $this->view = new TemplateRenderer();
         $this->layout = "layout";
     }
 
@@ -32,9 +38,9 @@ class MainController
         try {
             $this->view->render($template, $this->layout);
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning('Layout does not exist');
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning('Template does not exist');
         } catch (Exception $exception) {
         }
     }

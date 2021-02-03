@@ -1,9 +1,9 @@
 <?php
 /**
- * @var Session $session
+ * @var Authentication $auth
  */
 
-use Sessions\Session;
+use Sessions\Authentication;
 
 ?>
 <header>
@@ -50,15 +50,16 @@ use Sessions\Session;
                 </li>
 
                 <?php
-                    $session = new Session();
-                    if($session->sessionExists()) {
-                        ?>
+                $auth = new Authentication();
+                if ($auth->isAuth()) :
+                    ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/profile">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                 </svg>
-                                <?= $session->get("email")?>
+
+                                <?= $auth->getLogin()?>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -69,9 +70,9 @@ use Sessions\Session;
                                 Вихід
                             </a>
                         </li>
-                <?php
-                    } else {
-                ?>
+                    <?php
+                else :
+                    ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/signup">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-open-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -88,9 +89,9 @@ use Sessions\Session;
                         Вхід
                     </a>
                 </li>
-                <?php
-                    }
-                    ?>
+                    <?php
+                endif;
+                ?>
             </ul>
         </div>
     </nav>

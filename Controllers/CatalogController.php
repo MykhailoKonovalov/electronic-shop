@@ -3,19 +3,22 @@
 namespace Controllers;
 
 use Exception;
-use Models\ProductMapper;
+use Models\Product;
+use Monolog\Handler\FirePHPHandler;
+use Monolog\Handler\StreamHandler;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\Exceptions\Storage\InvalidIDExcemption;
-use Tools\Logger\Logger;
+//use Tools\Logger\Logger;
+use Monolog\Logger;
 use Tools\TemplateRenderer;
 
 class CatalogController
 {
     /**
-     * @var ProductMapper
+     * @var Product
      */
-    public ProductMapper $model;
+    public Product $model;
     /**
      * @var Logger
      */
@@ -29,10 +32,14 @@ class CatalogController
 
     public function __construct()
     {
-        $this->modelLogger = new Logger("data_log.txt");
-        $this->viewLogger = new Logger("temp_log.txt");
-        $this->model = new ProductMapper($this->modelLogger);
-        $this->view = new TemplateRenderer($this->viewLogger);
+        $this->modelLogger = new Logger("MODEL");
+        $this->viewLogger = new Logger("RENDERER");
+        $this->viewLogger->pushHandler(new StreamHandler('../storage/logs/renderer.log', Logger::WARNING));
+        $this->viewLogger->pushHandler(new FirePHPHandler());
+        $this->modelLogger->pushHandler(new StreamHandler('../storage/logs/model.log', Logger::WARNING));
+        $this->modelLogger->pushHandler(new FirePHPHandler());
+        $this->model = new Product();
+        $this->view = new TemplateRenderer();
         $this->layout = "layout";
     }
 
@@ -43,9 +50,9 @@ class CatalogController
             $data = $this->model->getData();
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning('Layout does not exist');
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning('Template does not exist');
         } catch (Exception $exception) {
         }
     }
@@ -58,11 +65,11 @@ class CatalogController
             $data = $this->model->getById($id);
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidIDExcemption $IDExcemption) {
-            $this->model->logger->warning($IDExcemption->getMessage(), ["id" => $id]);
+            $this->modelLogger->warning('Invalid ID!');
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning('Layout does not exist');
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning('Template does not exist');
         } catch (Exception $exception) {
         }
     }
