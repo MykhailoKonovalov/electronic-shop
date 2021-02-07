@@ -45,7 +45,7 @@ class Product
             }
         }
         if (!$products->$id) {
-            throw new InvalidIDExcemption("Incorrect id!", "404");
+            throw new InvalidIDExcemption("Incorrect id!");
         }
     }
 }

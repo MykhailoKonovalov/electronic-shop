@@ -4,13 +4,10 @@ namespace Controllers;
 
 use Exception;
 use Models\Product;
-use Monolog\Handler\FirePHPHandler;
-use Monolog\Handler\StreamHandler;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\Exceptions\Storage\InvalidIDExcemption;
-//use Tools\Logger\Logger;
-use Monolog\Logger;
+use Dialog\Logger;
 use Tools\TemplateRenderer;
 
 class CatalogController
@@ -32,12 +29,8 @@ class CatalogController
 
     public function __construct()
     {
-        $this->modelLogger = new Logger("MODEL");
-        $this->viewLogger = new Logger("RENDERER");
-        $this->viewLogger->pushHandler(new StreamHandler('../storage/logs/renderer.log', Logger::WARNING));
-        $this->viewLogger->pushHandler(new FirePHPHandler());
-        $this->modelLogger->pushHandler(new StreamHandler('../storage/logs/model.log', Logger::WARNING));
-        $this->modelLogger->pushHandler(new FirePHPHandler());
+        $this->modelLogger = new Logger("MODEL", '../storage/logs/model.log');
+        $this->viewLogger = new Logger("RENDERER", '../storage/logs/renderer.log');
         $this->model = new Product();
         $this->view = new TemplateRenderer();
         $this->layout = "layout";
@@ -65,11 +58,11 @@ class CatalogController
             $data = $this->model->getById($id);
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidIDExcemption $IDExcemption) {
-            $this->modelLogger->warning('Invalid ID!');
+            $this->modelLogger->warning($IDExcemption->getMessage(), ['id'=>$id]);
         } catch (InvalidLayoutException $layoutException) {
-            $this->viewLogger->warning('Layout does not exist');
+            $this->viewLogger->warning($layoutException->getMessage(), ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->viewLogger->warning('Template does not exist');
+            $this->viewLogger->warning($templateException->getMessage(), ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }

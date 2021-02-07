@@ -2,9 +2,8 @@
 
 namespace Controllers;
 
-use Monolog\Logger;
-use Monolog\Handler\FirePHPHandler;
-use Monolog\Handler\StreamHandler;
+use Dialog\Logger;
+use Exception;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\TemplateRenderer;
@@ -12,7 +11,7 @@ use Tools\TemplateRenderer;
 class BasketController
 {
     /**
-     * @var \Monolog\Logger
+     * @var Logger
      */
     private Logger $viewLogger;
     /**
@@ -23,9 +22,7 @@ class BasketController
 
     public function __construct()
     {
-        $this->viewLogger = new Logger("RENDERER");
-        $this->viewLogger->pushHandler(new StreamHandler('../storage/logs/renderer.log', Logger::WARNING));
-        $this->viewLogger->pushHandler(new FirePHPHandler());
+        $this->viewLogger = new Logger("RENDERER", '../storage/logs/renderer.log');
         $this->view = new TemplateRenderer();
         $this->layout = "layout";
     }
@@ -36,9 +33,9 @@ class BasketController
         try {
             $this->view->render($template, $this->layout);
         } catch (InvalidLayoutException $layoutException) {
-            $this->viewLogger->warning('Layout does not exist');
+            $this->viewLogger->warning($layoutException->getMessage(), ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->viewLogger->warning('Template does not exist');
+            $this->viewLogger->warning($templateException->getMessage(), ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }

@@ -20,6 +20,7 @@
         }
     },
     "require": {
-        "monolog/monolog": "^2.2"
+        "monolog/monolog": "^2.2",
+        "konovalov/dialog": "^1.0"
     }
 }

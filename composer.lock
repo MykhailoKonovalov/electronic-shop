@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6735f6e02bacf807a2879581d6417b1c",
+    "content-hash": "17a00ac298681b5db20bfc29f5760ebe",
     "packages": [
+        {
+            "name": "konovalov/dialog",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MykhailoKonovalov/Dialog.git",
+                "reference": "f2794bedb813be175c08036931d5ec8641dc063b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MykhailoKonovalov/Dialog/zipball/f2794bedb813be175c08036931d5ec8641dc063b",
+                "reference": "f2794bedb813be175c08036931d5ec8641dc063b",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "^2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dialog\\": "src/dialog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "MykhailoKonovalov",
+                    "email": "mykhailo.konovalov@nure.ua"
+                }
+            ],
+            "description": "Custom logging solution based on the monolog package",
+            "time": "2021-02-05T20:55:47+00:00"
+        },
         {
             "name": "monolog/monolog",
             "version": "2.2.0",
