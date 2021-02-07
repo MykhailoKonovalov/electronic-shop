@@ -29,7 +29,6 @@ class Authentication
             $path = "../storage/sessions";
             $this->session->setSavePath($path);
             $this->session->set("email", $email);
-            $this->session->set("pass", $pass);
             return true;
         } else {
             return false;

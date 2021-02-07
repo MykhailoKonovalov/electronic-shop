@@ -6,7 +6,8 @@ use Exception;
 use Sessions\Authentication;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
-use Tools\Logger\Logger;
+use Dialog\Logger;
+
 use Tools\TemplateRenderer;
 
 class UserController
@@ -27,8 +28,8 @@ class UserController
 
     public function __construct()
     {
-        $this->viewLogger = new Logger("temp_log.txt");
-        $this->view = new TemplateRenderer($this->viewLogger);
+        $this->viewLogger = new Logger("RENDERER", '../storage/logs/renderer.log');
+        $this->view = new TemplateRenderer();
         $this->layout = "layout";
         $this->authentication = new Authentication();
     }
@@ -45,9 +46,9 @@ class UserController
                 header("Location:/signin");
             }
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning($layoutException->getMessage(), ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning($templateException->getMessage(), ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }
@@ -68,9 +69,9 @@ class UserController
                 $this->view->render($template, $this->layout);
             }
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning($layoutException->getMessage(), ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning($templateException->getMessage(), ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }
@@ -85,9 +86,9 @@ class UserController
                 $this->view->render($template, $this->layout);
             }
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning($layoutException->getMessage(), ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning($templateException->getMessage(), ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }

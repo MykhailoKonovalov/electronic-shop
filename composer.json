@@ -19,5 +19,8 @@
             "Tools\\Logger\\" : "Tools/Logger/"
         }
     },
-    "require": {}
+    "require": {
+        "monolog/monolog": "^2.2",
+        "konovalov/dialog": "^1.0"
+    }
 }

@@ -3,19 +3,19 @@
 namespace Controllers;
 
 use Exception;
-use Models\ProductMapper;
+use Models\Product;
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
 use Tools\Exceptions\Storage\InvalidIDExcemption;
-use Tools\Logger\Logger;
+use Dialog\Logger;
 use Tools\TemplateRenderer;
 
 class CatalogController
 {
     /**
-     * @var ProductMapper
+     * @var Product
      */
-    public ProductMapper $model;
+    public Product $model;
     /**
      * @var Logger
      */
@@ -29,10 +29,10 @@ class CatalogController
 
     public function __construct()
     {
-        $this->modelLogger = new Logger("data_log.txt");
-        $this->viewLogger = new Logger("temp_log.txt");
-        $this->model = new ProductMapper($this->modelLogger);
-        $this->view = new TemplateRenderer($this->viewLogger);
+        $this->modelLogger = new Logger("MODEL", '../storage/logs/model.log');
+        $this->viewLogger = new Logger("RENDERER", '../storage/logs/renderer.log');
+        $this->model = new Product();
+        $this->view = new TemplateRenderer();
         $this->layout = "layout";
     }
 
@@ -43,9 +43,9 @@ class CatalogController
             $data = $this->model->getData();
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning('Layout does not exist');
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning('Template does not exist');
         } catch (Exception $exception) {
         }
     }
@@ -58,11 +58,11 @@ class CatalogController
             $data = $this->model->getById($id);
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidIDExcemption $IDExcemption) {
-            $this->model->logger->warning($IDExcemption->getMessage(), ["id" => $id]);
+            $this->modelLogger->warning($IDExcemption->getMessage(), ['id'=>$id]);
         } catch (InvalidLayoutException $layoutException) {
-            $this->view->logger->warning($layoutException->getMessage(), ["layout" => $this->layout]);
+            $this->viewLogger->warning($layoutException->getMessage(), ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->view->logger->warning($templateException->getMessage(), ["template" => $template]);
+            $this->viewLogger->warning($templateException->getMessage(), ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }

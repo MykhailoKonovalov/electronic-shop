@@ -4,20 +4,10 @@ namespace Tools;
 
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
-use Tools\Logger\Logger;
+//use Tools\Logger\Logger;
 
 class TemplateRenderer
 {
-    /**
-     * @var Logger
-     */
-    public Logger $logger;
-
-    public function __construct($logger)
-    {
-        $this->logger = $logger;
-    }
-
     /**
      * @param string $template
      * @param string $layout
