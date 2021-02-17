@@ -1,4 +1,5 @@
 .idea
+.env
 storage
 
 phpcbf.phar

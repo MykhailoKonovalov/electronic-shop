@@ -43,9 +43,9 @@ class CatalogController
             $data = $this->model->getData();
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidLayoutException $layoutException) {
-            $this->viewLogger->warning('Layout does not exist');
+            $this->viewLogger->warning('Layout does not exist', ['layout'=>$this->layout]);
         } catch (InvalidTemplateException $templateException) {
-            $this->viewLogger->warning('Template does not exist');
+            $this->viewLogger->warning('Template does not exist', ['template'=>$template]);
         } catch (Exception $exception) {
         }
     }

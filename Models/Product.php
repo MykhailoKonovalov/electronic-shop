@@ -17,7 +17,7 @@ class Product
     /**
      * @return array
      */
-    public function getData() : array
+    public function getData()
     {
         $storage = new Storage();
         $dataArray = $storage->parseData("../Database/products.txt");
@@ -36,7 +36,7 @@ class Product
         return $result;
     }
 
-    public function getById($id) : Product
+    public function getById($id)
     {
         $products = $this->getData();
         foreach ($products as $product) {
