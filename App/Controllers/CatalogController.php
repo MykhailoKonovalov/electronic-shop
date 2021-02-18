@@ -7,10 +7,8 @@ use App\Models\Entities\Product;
 use App\Models\Mappers\ProductMapper;
 use Framework\Tools\Exceptions\Renderer\InvalidLayoutException;
 use Framework\Tools\Exceptions\Renderer\InvalidTemplateException;
-use Framework\Tools\Exceptions\Storage\DeleteErrorException;
 use Framework\Tools\Exceptions\Storage\InvalidIDExcemption;
 use Dialog\Logger;
-use Framework\Tools\Exceptions\Storage\SaveErrorException;
 use Framework\Tools\TemplateRenderer;
 
 class CatalogController
@@ -40,10 +38,11 @@ class CatalogController
     public function index()
     {
         $template = "catalog";
+        $page = $_GET["page"] ?? 1;
         try {
             $product = new Product();
             $mapper = new ProductMapper($product);
-            $data = $mapper->get();
+            $data = $mapper->paginate(10, $page);
             $this->view->render($template, $this->layout, $data);
         } catch (InvalidLayoutException $layoutException) {
             $this->viewLogger->warning('Layout does not exist', ['layout'=>$this->layout]);

@@ -5,7 +5,7 @@ namespace Framework\Database;
 use PDO;
 use Framework\Tools\Exceptions\Storage\InvalidIDExcemption;
 
-class Mapper
+class Mapper extends QueryBuilder
 {
     private \PDO $conn;
     protected string $table;
@@ -22,7 +22,8 @@ class Mapper
     public function get($id = null)
     {
         if (is_null($id)) {
-            $query = "SELECT * FROM $this->table";
+            $conditions = $this->query ?? '';
+            $query = "SELECT * FROM $this->table $conditions";
             $funcName = "fetchAll";
             $sql = $this->conn->prepare($query);
         } else {
@@ -82,5 +83,17 @@ class Mapper
         } else {
             return false;
         }
+    }
+
+    public function paginate($limit, $page = 1): array
+    {
+        $data = $this->get();
+        $paginateData = [];
+        for ($i = $limit * ($page - 1); $i < $page * $limit; $i++) {
+            if (!empty($data[$i])) {
+                $paginateData[] = $data[$i];
+            }
+        }
+        return $paginateData;
     }
 }

@@ -14,6 +14,7 @@
             "App\\Models\\Mappers\\" : "App/Models/Mappers/",
             "Framework\\Route\\" : "Framework/Route/",
             "Framework\\Sessions\\" : "Framework/Sessions/",
+            "Framework\\Services\\" : "Framework/Services",
             "Framework\\Tools\\Exceptions\\Renderer\\" : "Framework/Tools/Exceptions/Renderer/",
             "Framework\\Tools\\Exceptions\\Router\\" : "Framework/Tools/Exceptions/Router/",
             "Framework\\Tools\\Exceptions\\Storage\\" : "Framework/Tools/Exceptions/Storage/",
