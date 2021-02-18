@@ -4,7 +4,6 @@ namespace Tools;
 
 use Tools\Exceptions\Renderer\InvalidLayoutException;
 use Tools\Exceptions\Renderer\InvalidTemplateException;
-//use Tools\Logger\Logger;
 
 class TemplateRenderer
 {

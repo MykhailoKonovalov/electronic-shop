@@ -10,6 +10,9 @@
         "psr-4" : {
             "Controllers\\" : "Controllers/",
             "Models\\" : "Models/",
+            "Models\\Entities" : "Models/Entities/",
+            "Models\\Mappers" : "Models/Mappers/",
+            "Database\\" : "Database/",
             "Route\\" : "Route/",
             "Sessions\\" : "Sessions/",
             "Tools\\" : "Tools/",
@@ -21,6 +24,8 @@
     },
     "require": {
         "monolog/monolog": "^2.2",
-        "konovalov/dialog": "^1.0"
+        "konovalov/dialog": "^1.0",
+      "ext-pdo": "*",
+        "symfony/dotenv": "^5.2"
     }
 }
