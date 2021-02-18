@@ -1,6 +1,6 @@
 .idea
 .env
-storage
+Framework/storage
 
 phpcbf.phar
 phpcs.phar
