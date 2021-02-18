@@ -8,24 +8,23 @@
     ],
     "autoload" : {
         "psr-4" : {
-            "Controllers\\" : "Controllers/",
-            "Models\\" : "Models/",
-            "Models\\Entities" : "Models/Entities/",
-            "Models\\Mappers" : "Models/Mappers/",
-            "Database\\" : "Database/",
-            "Route\\" : "Route/",
-            "Sessions\\" : "Sessions/",
-            "Tools\\" : "Tools/",
-            "Tools\\Exceptions\\Renderer\\" : "Tools/Exceptions/Renderer/",
-            "Tools\\Exceptions\\Router\\" : "Tools/Exceptions/Router/",
-            "Tools\\Exceptions\\Storage\\" : "Tools/Exceptions/Storage/",
-            "Tools\\Logger\\" : "Tools/Logger/"
+            "App\\Controllers\\" : "App/Controllers/",
+            "Framework\\Database\\" : "Framework/Database/",
+            "App\\Models\\Entities\\" : "App/Models/Entities/",
+            "App\\Models\\Mappers\\" : "App/Models/Mappers/",
+            "Framework\\Route\\" : "Framework/Route/",
+            "Framework\\Sessions\\" : "Framework/Sessions/",
+            "Framework\\Tools\\Exceptions\\Renderer\\" : "Framework/Tools/Exceptions/Renderer/",
+            "Framework\\Tools\\Exceptions\\Router\\" : "Framework/Tools/Exceptions/Router/",
+            "Framework\\Tools\\Exceptions\\Storage\\" : "Framework/Tools/Exceptions/Storage/",
+            "Framework\\Tools\\" : "Framework/Tools/",
+            "Framework\\Tools\\Logger\\": "Framework/Tools/Logger/"
         }
     },
     "require": {
         "monolog/monolog": "^2.2",
         "konovalov/dialog": "^1.0",
-      "ext-pdo": "*",
+        "ext-pdo": "*",
         "symfony/dotenv": "^5.2"
     }
 }
