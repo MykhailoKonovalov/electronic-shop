@@ -41,9 +41,9 @@
                     <div class="row">
                         <div class="col-8">
                             <h3 class="text-center"><?= $data->title ?></h3>
-                            <p>Бренд: <a href=""><?= $data->brand ?></a></p>
-                            <p>Категорія: <a href=""><?= $data->category ?></a></p>
-                            <p>Ціна:<?= $data->price ?></p>
+                            <p>Рік: <?= $data->year ?></p>
+                            <p>Ціна: <?= $data->price ?></p>
+                            <p>Кількість: <?= $data->quantity ?></p>
                         </div>
                         <div class="col-4">
                             <button type="button" class="btn btn-outline-light">

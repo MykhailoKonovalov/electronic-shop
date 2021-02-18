@@ -2,7 +2,6 @@
 
 use Sessions\Session;
 use Symfony\Component\Dotenv\Dotenv;
-use Database\Database;
 
 include "../vendor/autoload.php";
 

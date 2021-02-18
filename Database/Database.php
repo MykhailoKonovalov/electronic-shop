@@ -6,8 +6,8 @@ use PDO;
 
 class Database
 {
-    private static $instance = null;
-    private $conn;
+    private static ?Database $instance = null;
+    private PDO $conn;
 
     private string $host;
     private string $user;
@@ -35,7 +35,7 @@ class Database
 
     public static function getInstance()
     {
-        if(!self::$instance)
+        if (!self::$instance)
         {
             self::$instance = new Database();
         }

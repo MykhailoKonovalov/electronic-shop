@@ -38,13 +38,12 @@
                     <?php foreach ($data as $datum) { ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="<?= $datum->image ?>" alt="<?= $datum->title ?>"/>
+                            <img src="<?= $datum->image ?? "" ?>" alt="<?= $datum->title ?>"/>
                             <div class="card-body">
                                 <a href="/catalog/show?id=<?= $datum->id ?>">
                                     <h5 class="card-title"><?= $datum->title ?></h5>
                                 </a>
-                                <p>Бренд: <a href="#"><?= $datum->brand ?></a></p>
-                                <p>Категорія: <a href="#"><?= $datum->category ?></a></p>
+
                                 <p>Ціна: <?= $datum->price ?></p>
                             </div>
                         </div>
