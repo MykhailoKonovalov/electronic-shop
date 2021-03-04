@@ -35,10 +35,11 @@ class Mapper extends QueryBuilder
         $sql->execute();
         $sql->setFetchMode(PDO::FETCH_CLASS, get_class($this->entity));
         $this->entity = $sql->$funcName();
+        $json = json_encode($this->entity);
         if (empty($this->entity)) {
             throw new InvalidIDExcemption("Invalid ID");
         } else {
-            return ($this->entity);
+            return ($json);
         }
     }
 

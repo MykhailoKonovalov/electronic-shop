@@ -10,3 +10,4 @@ Router::route("/signin", "UserController", "signin");
 Router::route("/signup", "UserController", "signup");
 Router::route("/profile", "UserController", "profile");
 Router::route("/logout", "UserController", "logout");
+Router::route('/api/products', "CatalogController", "getJSON");

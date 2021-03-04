@@ -35,21 +35,17 @@ class CatalogController
         $this->layout = "layout";
     }
 
+    public function getJSON()
+    {
+        $product = new Product();
+        $mapper = new ProductMapper($product);
+        $data = $mapper->get();
+        echo $data;
+    }
+
     public function index()
     {
-        $template = "catalog";
-        $page = $_GET["page"] ?? 1;
-        try {
-            $product = new Product();
-            $mapper = new ProductMapper($product);
-            $data = $mapper->paginate(10, $page);
-            $this->view->render($template, $this->layout, $data);
-        } catch (InvalidLayoutException $layoutException) {
-            $this->viewLogger->warning('Layout does not exist', ['layout'=>$this->layout]);
-        } catch (InvalidTemplateException $templateException) {
-            $this->viewLogger->warning('Template does not exist', ['template'=>$template]);
-        } catch (Exception $exception) {
-        }
+        $this->view->render("template", $this->layout);
     }
 
     public function show()
