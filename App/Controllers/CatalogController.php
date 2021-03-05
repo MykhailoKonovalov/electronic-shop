@@ -45,7 +45,7 @@ class CatalogController
 
     public function index()
     {
-        $this->view->render("template", $this->layout);
+        $this->view->render("catalog", $this->layout);
     }
 
     public function show()

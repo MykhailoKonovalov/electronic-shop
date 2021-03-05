@@ -34,23 +34,7 @@
                             </div>
                         </li>
                     </ul>
-                <div class="row">
-                    <?php foreach ($data as $datum) { ?>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img src="<?= $datum->image ?? "" ?>" alt="<?= $datum->title ?>"/>
-                            <div class="card-body">
-                                <a href="/catalog/show?id=<?= $datum->id ?>">
-                                    <h5 class="card-title"><?= $datum->title ?></h5>
-                                </a>
-
-                                <p>Ціна: <?= $datum->price ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } ?>
-                </div>
-
+                <div class="row" id="catalog-block"></div>
             </div>
             </div>
     </div>
